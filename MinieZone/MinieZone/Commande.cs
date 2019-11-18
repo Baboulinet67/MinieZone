@@ -14,10 +14,17 @@ namespace MinieZone
 
         public decimal mntHt { get; set; }
 
+        public decimal tauxTVA { get; set; }
+
         public decimal mntTtc { get; set; }
 
         public decimal mntLivraison { get; set; }
 
         //public decimal somme { get; }
+
+        Commande()
+        {
+
+        }
     }
 }
