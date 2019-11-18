@@ -6,16 +6,28 @@ namespace MinieZoneLibrary
 {
     public class Commande
     {
+        public Commande(Adresse adresse, Adresse adresseFacturation)
+        {
+            Adresse = adresse;
+            AdresseFacturation = adresseFacturation;
+        }
+
+        public Commande(Adresse adresse)
+        {
+            Adresse = adresse;
+            AdresseFacturation = adresse;
+        }
+
         public Guid Id { get; set; } = Guid.NewGuid();
         public DateTime DateCommande { get; set; } = DateTime.Now;
         public List<Article> ListeArticle { get; set; } = new List<Article>();
-        public Adresse adresse { get; set; }
-        public Adresse adresseFacturation { get; set; }
+        public Adresse Adresse { get; set; }
+        public Adresse AdresseFacturation { get; set; }
 
         public DateTime DateLivraison { 
             get => DateCommande.AddDays(7);
         }
-
+        
         public decimal getSommeHt()
         {
             decimal somme = 0;
