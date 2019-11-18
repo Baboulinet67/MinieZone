@@ -6,25 +6,32 @@ namespace MinieZone
 {
     public class Commande
     {
-        public int id { get; set; }
-
-        public DateTime date { get; set; }
-
-        public List<Article> ListeArticle { get; set; }
-
-        public decimal mntHt { get; set; }
-
-        public decimal tauxTVA { get; set; }
-
-        public decimal mntTtc { get; set; }
-
-        public decimal mntLivraison { get; set; }
+        public Guid id { get; set; } = Guid.NewGuid();
+        public DateTime date { get; set; } = DateTime.Now;
+        public List<Article> ListeArticle { get; set; } = new List<Article>();
 
         //public decimal somme { get; }
 
-        Commande()
+        public decimal getSommeHt()
         {
-
+            decimal somme = 0;
+            foreach (var article in this.ListeArticle)
+            {
+                somme += article.PrixHt;
+            }
+            return somme;
         }
+
+        public decimal getSommeTtc()
+        {
+            decimal somme = 0;
+            foreach (var article in this.ListeArticle)
+            {
+                somme += (article.PrixHt * article.TauxTva);
+            }
+            return somme;
+        }
+
+
     }
 }

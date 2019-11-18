@@ -1,0 +1,8 @@
+D:\Documents\CESI\MinieZone\MinieZone\MinieZone\bin\Debug\netstandard2.0\MinieZoneLibrary.deps.json
+D:\Documents\CESI\MinieZone\MinieZone\MinieZone\bin\Debug\netstandard2.0\MinieZoneLibrary.dll
+D:\Documents\CESI\MinieZone\MinieZone\MinieZone\bin\Debug\netstandard2.0\MinieZoneLibrary.pdb
+D:\Documents\CESI\MinieZone\MinieZone\MinieZone\obj\Debug\netstandard2.0\MinieZoneLibrary.csprojAssemblyReference.cache
+D:\Documents\CESI\MinieZone\MinieZone\MinieZone\obj\Debug\netstandard2.0\MinieZoneLibrary.AssemblyInfoInputs.cache
+D:\Documents\CESI\MinieZone\MinieZone\MinieZone\obj\Debug\netstandard2.0\MinieZoneLibrary.AssemblyInfo.cs
+D:\Documents\CESI\MinieZone\MinieZone\MinieZone\obj\Debug\netstandard2.0\MinieZoneLibrary.dll
+D:\Documents\CESI\MinieZone\MinieZone\MinieZone\obj\Debug\netstandard2.0\MinieZoneLibrary.pdb

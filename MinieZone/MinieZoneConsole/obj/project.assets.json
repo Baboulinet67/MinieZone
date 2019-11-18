@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.0": {}
+    ".NETCoreApp,Version=v3.0": {
+      "MinieZoneLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/MinieZoneLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MinieZoneLibrary.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "MinieZoneLibrary/1.0.0": {
+      "type": "project",
+      "path": "../MinieZone/MinieZoneLibrary.csproj",
+      "msbuildProject": "../MinieZone/MinieZoneLibrary.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.0": []
+    ".NETCoreApp,Version=v3.0": [
+      "MinieZoneLibrary >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\quent\\.nuget\\packages\\": {},
@@ -36,7 +55,11 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Documents\\CESI\\MinieZone\\MinieZone\\MinieZone\\MinieZoneLibrary.csproj": {
+              "projectPath": "D:\\Documents\\CESI\\MinieZone\\MinieZone\\MinieZone\\MinieZoneLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
