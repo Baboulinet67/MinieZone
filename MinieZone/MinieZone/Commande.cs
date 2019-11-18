@@ -114,7 +114,7 @@ namespace MinieZoneLibrary
                 else if(index == 2)
                 {
                     this.FraisLivraison = 10;
-                    if(this.getSommeTtc() > 50)
+                    if(this.getSommeTtc() > 50 || this.ListeArticle.Count > 4)
                     {
                         this.FraisLivraison = 0;
                     }

@@ -1,6 +1,7 @@
 ﻿using MinieZoneLibrary;
 using System;
 using System.IO;
+using System.Text;
 
 namespace MinieZoneConsole
 {
@@ -8,6 +9,7 @@ namespace MinieZoneConsole
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             testGlobal();
         }
 
