@@ -10,9 +10,18 @@ namespace MinieZoneLibrary
 
         public string Nom { get; set; } = "";
 
-        public decimal PrixHt { get; set; } = 0;
+        public decimal PrixHt {
+            get
+            {
+                return this.PrixHt;
+            } 
+            set 
+            { 
+                this.PrixHt = Math.Abs(value);
+            } 
+        }
 
-        public decimal TauxTva { get; set; } = 0;
+        public decimal TauxTva { get; set; }
 
         public Article(string nom, decimal prixHt, decimal tauxTva)
         {

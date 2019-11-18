@@ -7,7 +7,7 @@ namespace MinieZoneConsole
     {
         static void Main(string[] args)
         {
-            testDecimal();
+            testGlobal();
         }
 
         public static void testDecimal()
@@ -25,7 +25,7 @@ namespace MinieZoneConsole
             Article article2 = new Article("Article 2", (decimal)10, (decimal)0.2);
             Article article3 = new Article("Article 3", (decimal)50, (decimal)0.2);
 
-            Adresse adr = new Adresse("rue", 67120, "Molsheim");
+            Adresse adr = new Adresse("rue", 67120, "Molsheim", "FRANCE");
 
             Commande commande1 = new Commande(adr);
             commande1.addArticle(article1);
@@ -36,6 +36,8 @@ namespace MinieZoneConsole
             foreach (string article in commande1.affichagePanier())
             {
                 Console.WriteLine(article);
+                commande1.calculFraisLivraison();
+                Console.WriteLine(commande1.FraisLivraison);
             }
 
             Console.WriteLine("Total Ht  : " + commande1.getSommeHt());
