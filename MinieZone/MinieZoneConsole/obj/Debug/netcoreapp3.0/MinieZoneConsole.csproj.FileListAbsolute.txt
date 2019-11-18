@@ -1,0 +1,14 @@
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\bin\Debug\netcoreapp3.0\MinieZoneConsole.exe
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\bin\Debug\netcoreapp3.0\MinieZoneConsole.deps.json
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\bin\Debug\netcoreapp3.0\MinieZoneConsole.runtimeconfig.json
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\bin\Debug\netcoreapp3.0\MinieZoneConsole.runtimeconfig.dev.json
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\bin\Debug\netcoreapp3.0\MinieZoneConsole.dll
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\bin\Debug\netcoreapp3.0\MinieZoneConsole.pdb
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\bin\Debug\netcoreapp3.0\MinieZoneLibrary.dll
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\bin\Debug\netcoreapp3.0\MinieZoneLibrary.pdb
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\obj\Debug\netcoreapp3.0\MinieZoneConsole.csprojAssemblyReference.cache
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\obj\Debug\netcoreapp3.0\MinieZoneConsole.AssemblyInfoInputs.cache
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\obj\Debug\netcoreapp3.0\MinieZoneConsole.AssemblyInfo.cs
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\obj\Debug\netcoreapp3.0\MinieZoneConsole.csproj.CopyComplete
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\obj\Debug\netcoreapp3.0\MinieZoneConsole.dll
+D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\obj\Debug\netcoreapp3.0\MinieZoneConsole.pdb
