@@ -10,14 +10,15 @@ namespace MinieZoneLibrary
 
         public string Nom { get; set; } = "";
 
+        private decimal _prixHt;
         public decimal PrixHt {
             get
             {
-                return this.PrixHt;
+                return this._prixHt;
             } 
             set 
             { 
-                this.PrixHt = Math.Abs(value);
+                this._prixHt = Math.Abs(value);
             } 
         }
 

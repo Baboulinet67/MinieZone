@@ -30,6 +30,8 @@ namespace MinieZoneLibrary
 
         public int FraisLivraison { get; private set; }
 
+        public Utilisateur utilisateur { get; set; }
+
 
         public decimal getSommeHt()
         {
@@ -68,8 +70,28 @@ namespace MinieZoneLibrary
             return panier;
         }
 
-        public void validationCommande()
+        public int validationCommande(string sexe)
         {
+            if(this.ListeArticle.Count == 0)
+            {
+                throw new Exception("EmptyArticleException");
+            }
+
+            if(sexe == "M")
+            {
+                utilisateur.SexePersonne = Utilisateur.Sexe.Male;
+                return 0;
+            }
+            else if (sexe == "F")
+            {
+                utilisateur.SexePersonne = Utilisateur.Sexe.Female;
+                return 0;
+            }
+            else
+            {
+                throw new Exception("WrongSexException");
+                return -1;
+            }
 
         }
 
@@ -77,21 +99,33 @@ namespace MinieZoneLibrary
         {
             DictionnairePays dic = new DictionnairePays();
             
-            if(this.ListeArticle.Count > 1 && this.ListeArticle.Count < 4)
+            if(this.ListeArticle.Count > 1)
             {
                 dic.LivraisonPays.TryGetValue(this.Adresse.Pays, out int index);
                 
                 if (index == 1)
                 {
                     this.FraisLivraison = 5;
+                    if (this.ListeArticle.Count > 3)
+                    {
+                        this.FraisLivraison = 0;
+                    }
                 }
                 else if(index == 2)
                 {
                     this.FraisLivraison = 10;
+                    if(this.getSommeTtc() > 50)
+                    {
+                        this.FraisLivraison = 0;
+                    }
                 }
                 else
                 {
                     this.FraisLivraison = 20;
+                    if(this.ListeArticle.Count > 5 && this.getSommeTtc() > 100)
+                    {
+                        this.FraisLivraison = 0;
+                    }
                 }
             }
             else
@@ -102,7 +136,14 @@ namespace MinieZoneLibrary
 
         public decimal calculPrixMoyen()
         {
-            return (this.getSommeTtc() / this.ListeArticle.Count);
+            if(this.ListeArticle.Count > 0)
+            {
+                return (this.getSommeTtc() / this.ListeArticle.Count);
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

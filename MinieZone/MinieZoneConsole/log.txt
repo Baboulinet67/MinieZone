@@ -1,0 +1,6 @@
+18/11/2019 14:54:08 System.Exception: EmptyArticleException
+   at MinieZoneLibrary.Commande.validationCommande() in D:\Documents\CESI\MinieZone\MinieZone\MinieZone\Commande.cs:line 78
+   at MinieZoneConsole.Program.testGlobal() in D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\Program.cs:line 51
+18/11/2019 15:38:23 System.Exception: EmptyArticleException
+   at MinieZoneLibrary.Commande.validationCommande(String sexe) in D:\Documents\CESI\MinieZone\MinieZone\MinieZone\Commande.cs:line 80
+   at MinieZoneConsole.Program.testGlobal() in D:\Documents\CESI\MinieZone\MinieZone\MinieZoneConsole\Program.cs:line 53

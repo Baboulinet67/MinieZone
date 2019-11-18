@@ -1,5 +1,6 @@
 ﻿using MinieZoneLibrary;
 using System;
+using System.IO;
 
 namespace MinieZoneConsole
 {
@@ -43,7 +44,46 @@ namespace MinieZoneConsole
             Console.WriteLine("Total Ht  : " + commande1.getSommeHt());
             Console.WriteLine("Total Ttc : " + commande1.getSommeTtc());
 
+            Commande cmd2 = new Commande(adr);
+            cmd2.addArticle(article1);
+
+            try
+            {
+                Console.WriteLine("Pour valider la commande, merci de confirmer votre sexe : M(ale) F(emele) ");
+                string sexe = Console.ReadLine();
+                if(cmd2.validationCommande(sexe) == 0)
+                {
+                    Console.WriteLine("Commande Validée");
+                }
+                else
+                {
+                    Console.WriteLine("La commande n'a pas pu être validée");
+                }
+            }
+            catch (Exception e)
+            {
+                if (e.Message == "EmptyArticleException")
+                {
+                    Console.WriteLine("Une commande ne peux pas être validée avec 0 articles");
+                    log(e);
+                }
+                if (e.Message == "WrongSexException")
+                {
+                    Console.WriteLine("Le sexe n'a pas été correctement renseigné");
+                    log(e);
+                }
+            }
+
             Console.ReadKey();
+        }
+
+        public static void log(Exception e)
+        {
+            StreamWriter sw = File.AppendText("D:\\Documents\\CESI\\MinieZone\\MinieZone\\MinieZoneConsole\\log.txt");
+            
+            sw.WriteLine(DateTime.Now +" "+ e.ToString());
+
+            sw.Close();
         }
     }
 }
