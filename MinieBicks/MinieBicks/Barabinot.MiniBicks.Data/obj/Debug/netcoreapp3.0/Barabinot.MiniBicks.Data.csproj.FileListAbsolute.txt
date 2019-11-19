@@ -1,0 +1,10 @@
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.deps.json
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.dll
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.AssemblyInfoInputs.cache
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.AssemblyInfo.cs
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.pdb
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.dll
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.pdb
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.csprojAssemblyReference.cache
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.runtimeconfig.json
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.runtimeconfig.dev.json
