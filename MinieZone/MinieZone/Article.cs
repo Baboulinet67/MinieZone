@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace MinieZoneLibrary
@@ -8,6 +9,7 @@ namespace MinieZoneLibrary
     {
         public Guid id { get; set; } = Guid.NewGuid();
 
+        [Required(ErrorMessage ="Le nom est requis")]
         public string Nom { get; set; } = "";
 
         private decimal _prixHt;

@@ -33,6 +33,7 @@ namespace MinieZoneLibrary
         public Utilisateur utilisateur { get; set; }
 
 
+
         public decimal getSommeHt()
         {
             decimal somme = 0;
@@ -145,5 +146,12 @@ namespace MinieZoneLibrary
                 return 0;
             }
         }
+
+    }
+
+    public class OrderCompleted : EventArgs
+    {
+        public int Threshold { get; set; }
+        public DateTime TimeReached { get; set; }
     }
 }
