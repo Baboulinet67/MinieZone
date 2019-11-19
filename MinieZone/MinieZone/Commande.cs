@@ -148,10 +148,4 @@ namespace MinieZoneLibrary
         }
 
     }
-
-    public class OrderCompleted : EventArgs
-    {
-        public int Threshold { get; set; }
-        public DateTime TimeReached { get; set; }
-    }
 }
