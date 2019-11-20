@@ -1,9 +1,10 @@
-﻿<Window x:Class="Barabinot.MinieBicks.UI.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Barabinot.MinieBicks.UI"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Barabinot.MinieBicks.UI.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="344" Width="478">
     <Grid>
@@ -32,7 +33,22 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Gestion des absences">
-                    <Grid Background="#FFE5E5E5"/>
+                    <Grid Background="#FFE5E5E5">
+                        <Label Content="Congés restants : " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="LblConge" Content="Label" HorizontalAlignment="Left" Margin="119,10,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Date début : " HorizontalAlignment="Left" Margin="162,10,0,0" VerticalAlignment="Top"/>
+                        <Label Content="RTT restants : " HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="LblRtt" Content="Label" HorizontalAlignment="Left" Margin="119,126,0,0" VerticalAlignment="Top"/>
+                        <Button Content="Valider congés" HorizontalAlignment="Left" Margin="248,215,0,0" VerticalAlignment="Top" Width="72" Click="Button_Click_1" FontSize="10"/>
+                        <DatePicker x:Name="DebutConge" HorizontalAlignment="Left" Margin="246,12,0,0" VerticalAlignment="Top" Width="77"/>
+                        <Label Content="Date fin : " HorizontalAlignment="Left" Margin="162,46,0,0" VerticalAlignment="Top"/>
+                        <DatePicker x:Name="FinConge" HorizontalAlignment="Left" Margin="246,48,0,0" VerticalAlignment="Top" Width="77"/>
+                        <Label Content="Date début : " HorizontalAlignment="Left" Margin="162,126,0,0" VerticalAlignment="Top"/>
+                        <DatePicker x:Name="DebutRtt" HorizontalAlignment="Left" Margin="246,128,0,0" VerticalAlignment="Top" Width="77"/>
+                        <Label Content="Date fin : " HorizontalAlignment="Left" Margin="162,162,0,0" VerticalAlignment="Top"/>
+                        <DatePicker x:Name="FinRtt" HorizontalAlignment="Left" Margin="246,164,0,0" VerticalAlignment="Top" Width="77"/>
+
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Gestion des frais">
                     <Grid Background="#FFE5E5E5"/>

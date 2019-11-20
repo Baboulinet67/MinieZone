@@ -127,6 +127,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.0.1, )"
+            },
+            "MiqM.Xceed.Wpf.Toolkit.NETCore": {
+              "target": "Package",
+              "version": "[3.4.0.1, )"
             }
           },
           "imports": [

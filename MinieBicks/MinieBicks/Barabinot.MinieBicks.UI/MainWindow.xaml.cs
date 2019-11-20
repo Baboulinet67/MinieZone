@@ -1,4 +1,5 @@
 ﻿using Barabinot.MiniBicks.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,15 @@ namespace Barabinot.MinieBicks.UI
             this.TextBoxVille.Text = ((Utilisateurs)ListeBoxUser.SelectedItem).Ville;
             this.TextBoxPays.Text = ((Utilisateurs)ListeBoxUser.SelectedItem).Pays;
             this.TextBoxRole.Text = ((Utilisateurs)ListeBoxUser.SelectedItem).Role.ToString();
+
+            using (var db = new GestionContext())
+            {
+                // affiche le compteur de congés
+                Console.WriteLine("Lecture des congés de l'utilisateur");
+                var user = db.Utilisateurs.Include(p => p.Conge).Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
+                this.LblConge.Content = user.Conge.NbConge;
+                this.LblRtt.Content = user.Conge.NbRTT;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -73,6 +83,58 @@ namespace Barabinot.MinieBicks.UI
                 db.SaveChanges();
             }
             ChargerListeUser();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int congePose = 0;
+            int RttPose = 0;
+            if (this.DebutConge.SelectedDate != null && this.FinConge.SelectedDate != null)
+            {
+                DateTime debutConge = (DateTime)this.DebutConge.SelectedDate;
+                DateTime finConge = (DateTime)this.FinConge.SelectedDate;
+
+                congePose = Math.Abs((finConge - debutConge).Days) + 1;
+            }
+            
+            if(this.DebutRtt.SelectedDate != null && this.FinRtt.SelectedDate != null)
+            {
+                DateTime debutRtt = (DateTime)this.DebutRtt.SelectedDate;
+                DateTime finRtt = (DateTime)this.FinRtt.SelectedDate;
+
+                RttPose = Math.Abs((finRtt - debutRtt).Days) + 1;
+            }
+            
+            if (congePose != 0 || RttPose != 0)
+            {
+                using (var db = new GestionContext())
+                {
+                    // affiche le compteur de congés
+                    Console.WriteLine("Lecture des congés de l'utilisateur");
+                    var user = db.Utilisateurs.Include(p => p.Conge).Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
+                    user.Conge.NbConge -= congePose;
+                    user.Conge.NbRTT -= RttPose;
+                    db.SaveChanges();   
+                }
+                RefreshConge();
+            }
+        }
+
+        private void RefreshConge()
+        {
+            using (var db = new GestionContext())
+            {
+                // affiche le compteur de congés
+                Console.WriteLine("Lecture des congés de l'utilisateur");
+                var user = db.Utilisateurs.Include(p => p.Conge).Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
+                this.LblConge.Content = user.Conge.NbConge;
+                this.LblRtt.Content = user.Conge.NbRTT;
+            }
+            this.DebutConge.SelectedDate = null;
+            this.FinConge.SelectedDate = null;
+
+            this.DebutRtt.SelectedDate = null;
+            this.FinRtt.SelectedDate = null;
         }
     }
 }
