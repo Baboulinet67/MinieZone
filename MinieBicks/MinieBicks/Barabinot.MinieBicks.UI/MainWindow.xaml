@@ -15,6 +15,10 @@
             <TabControl>
                 <TabItem x:Name="Tab_Gestion_utilisateur" Header="Gestion utilisateur">
                     <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="281*"/>
+                            <ColumnDefinition Width="71*"/>
+                        </Grid.ColumnDefinitions>
                         <Label Content="Nom" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                         <Label Content="Prenom" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
                         <Label Content="Rue" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
@@ -64,10 +68,12 @@
                         <TextBox x:Name="TxtBoxKm" HorizontalAlignment="Left" Margin="164,45,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
                         <TextBox x:Name="TxtBoxParking" HorizontalAlignment="Left" Margin="164,76,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
                         <TextBox x:Name="TxtBoxPhone" HorizontalAlignment="Left" Margin="164,107,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
-                        <TextBox x:Name="TxtBoxRepas" HorizontalAlignment="Left" Margin="164,0,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" KeyUp="TxtBox_KeyUp"/>
+                        <TextBox x:Name="TxtBoxRepas" HorizontalAlignment="Left" Margin="164,138,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
                         <TextBox x:Name="TxtBoxLogement" HorizontalAlignment="Left" Margin="164,169,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
                         <TextBox x:Name="TxtBoxDivers" HorizontalAlignment="Left" Margin="164,200,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
                         <Label x:Name="lblTotFrais" Content="lbl" HorizontalAlignment="Left" Margin="164,227,0,0" VerticalAlignment="Top"/>
+                        <DatePicker x:Name="DateFrais" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="132"/>
+                        <Button Content="Valider frais" HorizontalAlignment="Left" Margin="164,260,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click_2"/>
                     </Grid>
                 </TabItem>
             </TabControl>

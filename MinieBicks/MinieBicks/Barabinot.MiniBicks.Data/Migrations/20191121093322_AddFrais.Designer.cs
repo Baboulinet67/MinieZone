@@ -3,14 +3,16 @@ using System;
 using Barabinot.MiniBicks.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Barabinot.MiniBicks.Data.Migrations
 {
     [DbContext(typeof(GestionContext))]
-    partial class GestionContextModelSnapshot : ModelSnapshot
+    [Migration("20191121093322_AddFrais")]
+    partial class AddFrais
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

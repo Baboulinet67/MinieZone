@@ -27,6 +27,7 @@ namespace Barabinot.MiniBicks.Data
         public int Role { get; set; }
         public int IdSuperieur { get; set; }
         public Conge Conge { get; set; }
+        public List<Frais> Frais { get; } = new List<Frais>();
     }
 
     public class Conge
@@ -34,5 +35,13 @@ namespace Barabinot.MiniBicks.Data
         public int CongeId { get; set; }
         public int NbConge { get; set; }
         public int NbRTT { get; set; }
+    }
+
+    public class Frais
+    {
+        public int FraisId { get; set; }
+        public DateTime DateFrais { get; set; }
+        public decimal TotFrais { get; set; }
+        public decimal ReportFrais { get; set; }
     }
 }

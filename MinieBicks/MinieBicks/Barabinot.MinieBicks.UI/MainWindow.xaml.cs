@@ -95,15 +95,16 @@ namespace Barabinot.MinieBicks.UI
                 DateTime debutConge = (DateTime)this.DebutConge.SelectedDate;
                 DateTime finConge = (DateTime)this.FinConge.SelectedDate;
 
-                congePose = Math.Abs((finConge - debutConge).Days) + 1;
+                congePose = GetNumberOfWorkingDays(debutConge, finConge);
+                //congePose = Math.Abs((finConge - debutConge).Days) + 1;
             }
             
             if(this.DebutRtt.SelectedDate != null && this.FinRtt.SelectedDate != null)
             {
                 DateTime debutRtt = (DateTime)this.DebutRtt.SelectedDate;
                 DateTime finRtt = (DateTime)this.FinRtt.SelectedDate;
-
-                RttPose = Math.Abs((finRtt - debutRtt).Days) + 1;
+                RttPose = GetNumberOfWorkingDays(debutRtt, finRtt);
+                //RttPose = Math.Abs((finRtt - debutRtt).Days) + 1;
             }
             
             if (congePose != 0 || RttPose != 0)
@@ -124,8 +125,8 @@ namespace Barabinot.MinieBicks.UI
                         db.SaveChanges(); 
                     }
                 }
-                RefreshConge();
             }
+            RefreshConge();
         }
 
         private void RefreshConge()
@@ -174,6 +175,44 @@ namespace Barabinot.MinieBicks.UI
         {
             return _regex.Replace(text,"");
             //return !_regex.IsMatch(text);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            using (var db = new GestionContext())
+            {
+                Frais frais = new Frais();
+                frais.DateFrais = (DateTime)this.DateFrais.SelectedDate;
+                decimal fraisTransport = Convert.ToDecimal(this.TxtBoxTransport.Text);
+                decimal fraisKm = Convert.ToDecimal(this.TxtBoxKm.Text) * 0.33m;
+                decimal fraisParking = Convert.ToDecimal(this.TxtBoxParking.Text);
+                decimal fraisPhone = Convert.ToDecimal(this.TxtBoxPhone.Text);
+                decimal fraisRepas = Convert.ToDecimal(this.TxtBoxRepas.Text);
+                decimal fraisLogement = Convert.ToDecimal(this.TxtBoxLogement.Text);
+                decimal fraisDivers = Convert.ToDecimal(this.TxtBoxDivers.Text);
+
+                frais.TotFrais = fraisTransport + fraisKm + fraisParking + fraisPhone + fraisRepas + fraisLogement + fraisDivers;
+            
+            
+                var user = db.Utilisateurs.Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
+
+                user.Frais.Add(frais);
+                db.SaveChanges();
+            }
+        }
+
+        private static int GetNumberOfWorkingDays(DateTime start, DateTime stop)
+        {
+            int days = 0;
+            while (start <= stop)
+            {
+                if (start.DayOfWeek != DayOfWeek.Saturday && start.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    ++days;
+                }
+                start = start.AddDays(1);
+            }
+            return days;
         }
     }
 }
