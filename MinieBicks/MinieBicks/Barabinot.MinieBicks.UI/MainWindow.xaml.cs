@@ -214,5 +214,47 @@ namespace Barabinot.MinieBicks.UI
             }
             return days;
         }
+
+        private void ButtonAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new GestionContext())
+            {
+                //var user = db.Utilisateurs.Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
+                Utilisateurs user = new Utilisateurs();
+                // Create
+                Console.WriteLine("Mise à jour de l'utilisateur");
+                user.Nom = this.TextBoxNom.Text;
+                user.Prenom = this.TextBoxPrenom.Text;
+                user.Rue = this.TextBoxRue.Text;
+                user.CodePostal = this.TextBoxCodePostal.Text;
+                user.Ville = this.TextBoxVille.Text;
+                user.Pays = this.TextBoxPays.Text;
+                user.Role = Convert.ToInt32(this.TextBoxRole.Text);
+
+                Conge conge = new Conge();
+
+                switch (user.Pays.ToUpper().ToString())
+                {
+                    case "FRANCE":
+                        conge.NbConge = 25;
+                        conge.NbRTT = 10;
+                        break;
+                    case "BELGIQUE":
+                        conge.NbConge = 25;
+                        conge.NbRTT = 12;
+                        break;
+                    default:
+                        conge.NbConge = 30;
+                        conge.NbRTT = 0;
+                        break;
+                }
+
+                user.Conge = conge;
+
+                db.Add(user);
+                db.SaveChanges();
+            }
+            ChargerListeUser();
+        }
     }
 }

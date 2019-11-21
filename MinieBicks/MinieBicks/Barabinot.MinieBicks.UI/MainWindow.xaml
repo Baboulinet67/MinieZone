@@ -33,7 +33,8 @@
                         <TextBox x:Name="TextBoxVille" HorizontalAlignment="Left" Margin="104,138,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                         <TextBox x:Name="TextBoxPays" HorizontalAlignment="Left" Margin="104,169,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                         <TextBox x:Name="TextBoxRole" HorizontalAlignment="Left" Margin="104,200,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                        <Button Content="Modifier" HorizontalAlignment="Left" Margin="104,234,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.416,-0.029" Width="120" Click="Button_Click"/>
+                        <Button Content="Modifier" HorizontalAlignment="Left" Margin="104,223,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.416,-0.029" Width="120" Click="Button_Click"/>
+                        <Button x:Name="ButtonAddUser" Content="Ajouter utilisateur" HorizontalAlignment="Left" Margin="104,248,0,0" VerticalAlignment="Top" Width="120" Click="ButtonAddUser_Click"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Gestion des absences">
