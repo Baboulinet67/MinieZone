@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -114,7 +115,14 @@ namespace Barabinot.MinieBicks.UI
                     var user = db.Utilisateurs.Include(p => p.Conge).Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
                     user.Conge.NbConge -= congePose;
                     user.Conge.NbRTT -= RttPose;
-                    db.SaveChanges();   
+                    if(user.Conge.NbConge < 0 || user.Conge.NbRTT < 0)
+                    {
+                        MessageBox.Show("Solde de congés insuffisant");
+                    }
+                    else
+                    {
+                        db.SaveChanges(); 
+                    }
                 }
                 RefreshConge();
             }
@@ -135,6 +143,37 @@ namespace Barabinot.MinieBicks.UI
 
             this.DebutRtt.SelectedDate = null;
             this.FinRtt.SelectedDate = null;
+        }
+
+        private void TxtBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.TxtBoxTransport.Text = IsTextAllowed(this.TxtBoxTransport.Text);
+            this.TxtBoxKm.Text = IsTextAllowed(this.TxtBoxKm.Text);
+            this.TxtBoxParking.Text = IsTextAllowed(this.TxtBoxParking.Text);
+            this.TxtBoxPhone.Text = IsTextAllowed(this.TxtBoxPhone.Text);
+            this.TxtBoxRepas.Text = IsTextAllowed(this.TxtBoxRepas.Text);
+            this.TxtBoxLogement.Text = IsTextAllowed(this.TxtBoxLogement.Text);
+            this.TxtBoxDivers.Text = IsTextAllowed(this.TxtBoxDivers.Text);
+
+
+            decimal totFrais = 0;
+            decimal fraisTransport = Convert.ToDecimal(this.TxtBoxTransport.Text);
+            decimal fraisKm = Convert.ToDecimal(this.TxtBoxKm.Text) * 0.33m;
+            decimal fraisParking = Convert.ToDecimal(this.TxtBoxParking.Text);
+            decimal fraisPhone = Convert.ToDecimal(this.TxtBoxPhone.Text);
+            decimal fraisRepas = Convert.ToDecimal(this.TxtBoxRepas.Text);
+            decimal fraisLogement = Convert.ToDecimal(this.TxtBoxLogement.Text);
+            decimal fraisDivers = Convert.ToDecimal(this.TxtBoxDivers.Text);
+            totFrais = fraisTransport + fraisKm + fraisParking + fraisPhone + fraisRepas + fraisLogement + fraisDivers;
+
+            this.lblTotFrais.Content = totFrais;
+        }
+
+        private static readonly Regex _regex = new Regex("[^0-9,-]+"); //regex that matches disallowed text
+        private static string IsTextAllowed(string text)
+        {
+            return _regex.Replace(text,"");
+            //return !_regex.IsMatch(text);
         }
     }
 }
