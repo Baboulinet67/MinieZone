@@ -27,9 +27,11 @@ namespace Barabinot.MinieBicks.UI
         {
             InitializeComponent();
 
+            //On commence par charger tous les utilisateurs de la table Utilisateurs
             ChargerListeUser();
         }
 
+        //Chargement de la liste utilisateur
         private void ChargerListeUser()
         {
             using (var db = new GestionContext())
@@ -46,6 +48,7 @@ namespace Barabinot.MinieBicks.UI
             }
         }
 
+        //Action mise en place lorsque la selection de l'utilisateur a changée
         private void ListeBoxUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.TextBoxNom.Text = ((Utilisateurs)ListeBoxUser.SelectedItem).Nom;
@@ -66,7 +69,8 @@ namespace Barabinot.MinieBicks.UI
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //Modification de l'utilisateur selectionné
+        private void Button_ModifUser(object sender, RoutedEventArgs e)
         {
             using (var db = new GestionContext())
             {
@@ -86,7 +90,8 @@ namespace Barabinot.MinieBicks.UI
             ChargerListeUser();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        //Validation d'un congé et/ou d'un RTT
+        private void Button_ValidConge(object sender, RoutedEventArgs e)
         {
             int congePose = 0;
             int RttPose = 0;
@@ -129,6 +134,7 @@ namespace Barabinot.MinieBicks.UI
             RefreshConge();
         }
 
+        //Permet de mettre à jour les valeurs affichées dans la page congés
         private void RefreshConge()
         {
             using (var db = new GestionContext())
@@ -146,6 +152,7 @@ namespace Barabinot.MinieBicks.UI
             this.FinRtt.SelectedDate = null;
         }
 
+        //Vérification de saisie
         private void TxtBox_KeyUp(object sender, KeyEventArgs e)
         {
             this.TxtBoxTransport.Text = IsTextAllowed(this.TxtBoxTransport.Text);
@@ -156,9 +163,9 @@ namespace Barabinot.MinieBicks.UI
             this.TxtBoxLogement.Text = IsTextAllowed(this.TxtBoxLogement.Text);
             this.TxtBoxDivers.Text = IsTextAllowed(this.TxtBoxDivers.Text);
 
-
             decimal totFrais = 0;
             decimal fraisTransport = Convert.ToDecimal(this.TxtBoxTransport.Text);
+            //Les frais kilométriques sont remboursé à hauteur de 0.33€ par Km
             decimal fraisKm = Convert.ToDecimal(this.TxtBoxKm.Text) * 0.33m;
             decimal fraisParking = Convert.ToDecimal(this.TxtBoxParking.Text);
             decimal fraisPhone = Convert.ToDecimal(this.TxtBoxPhone.Text);
@@ -174,10 +181,9 @@ namespace Barabinot.MinieBicks.UI
         private static string IsTextAllowed(string text)
         {
             return _regex.Replace(text,"");
-            //return !_regex.IsMatch(text);
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_ValidFrais(object sender, RoutedEventArgs e)
         {
             using (var db = new GestionContext())
             {
@@ -201,6 +207,7 @@ namespace Barabinot.MinieBicks.UI
             }
         }
 
+        //Renvoie le nombre de jours ouvrés entre deux dates
         private static int GetNumberOfWorkingDays(DateTime start, DateTime stop)
         {
             int days = 0;
@@ -215,14 +222,13 @@ namespace Barabinot.MinieBicks.UI
             return days;
         }
 
-        private void ButtonAddUser_Click(object sender, RoutedEventArgs e)
+        private void Button_AddUser(object sender, RoutedEventArgs e)
         {
             using (var db = new GestionContext())
             {
-                //var user = db.Utilisateurs.Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
                 Utilisateurs user = new Utilisateurs();
-                // Create
-                Console.WriteLine("Mise à jour de l'utilisateur");
+                // Création d'un utilisateur
+                Console.WriteLine("Création d'un utilisateur");
                 user.Nom = this.TextBoxNom.Text;
                 user.Prenom = this.TextBoxPrenom.Text;
                 user.Rue = this.TextBoxRue.Text;
@@ -233,6 +239,7 @@ namespace Barabinot.MinieBicks.UI
 
                 Conge conge = new Conge();
 
+                //Attribue le nombre de jour de congés et de RTT selon le pays de résidence de l'utilisateur
                 switch (user.Pays.ToUpper().ToString())
                 {
                     case "FRANCE":

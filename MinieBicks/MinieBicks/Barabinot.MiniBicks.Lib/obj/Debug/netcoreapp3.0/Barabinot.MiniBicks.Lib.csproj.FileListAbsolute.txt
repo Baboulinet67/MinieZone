@@ -1,7 +1,6 @@
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Lib\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Lib.deps.json
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Lib\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Lib.dll
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Lib\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Lib.pdb
-D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Lib\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Lib.csprojAssemblyReference.cache
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Lib\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Lib.AssemblyInfoInputs.cache
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Lib\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Lib.AssemblyInfo.cs
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Lib\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Lib.dll
