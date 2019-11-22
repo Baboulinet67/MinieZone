@@ -446,6 +446,16 @@
         "runtime": {
           "bin/placeholder/Barabinot.MiniBicks.Data.dll": {}
         }
+      },
+      "Barabinot.MiniBicks.Lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "compile": {
+          "bin/placeholder/Barabinot.MiniBicks.Lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Barabinot.MiniBicks.Lib.dll": {}
+        }
       }
     }
   },
@@ -1159,11 +1169,17 @@
       "type": "project",
       "path": "../Barabinot.MiniBicks.Data/Barabinot.MiniBicks.Data.csproj",
       "msbuildProject": "../Barabinot.MiniBicks.Data/Barabinot.MiniBicks.Data.csproj"
+    },
+    "Barabinot.MiniBicks.Lib/1.0.0": {
+      "type": "project",
+      "path": "../Barabinot.MiniBicks.Lib/Barabinot.MiniBicks.Lib.csproj",
+      "msbuildProject": "../Barabinot.MiniBicks.Lib/Barabinot.MiniBicks.Lib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
       "Barabinot.MiniBicks.Data >= 1.0.0",
+      "Barabinot.MiniBicks.Lib >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.1"
     ]
@@ -1200,6 +1216,9 @@
           "projectReferences": {
             "D:\\Documents\\CESI\\MinieZone\\MinieBicks\\MinieBicks\\Barabinot.MiniBicks.Data\\Barabinot.MiniBicks.Data.csproj": {
               "projectPath": "D:\\Documents\\CESI\\MinieZone\\MinieBicks\\MinieBicks\\Barabinot.MiniBicks.Data\\Barabinot.MiniBicks.Data.csproj"
+            },
+            "D:\\Documents\\CESI\\MinieZone\\MinieBicks\\MinieBicks\\Barabinot.MiniBicks.Lib\\Barabinot.MiniBicks.Lib.csproj": {
+              "projectPath": "D:\\Documents\\CESI\\MinieZone\\MinieBicks\\MinieBicks\\Barabinot.MiniBicks.Lib\\Barabinot.MiniBicks.Lib.csproj"
             }
           }
         }

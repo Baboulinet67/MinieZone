@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Barabinot.MiniBicks.Lib;
 
 namespace Barabinot.MinieBicks.UI
 {
@@ -100,7 +101,7 @@ namespace Barabinot.MinieBicks.UI
                 DateTime debutConge = (DateTime)this.DebutConge.SelectedDate;
                 DateTime finConge = (DateTime)this.FinConge.SelectedDate;
 
-                congePose = GetNumberOfWorkingDays(debutConge, finConge);
+                congePose = Utils.GetNumberOfWorkingDays(debutConge, finConge);
                 //congePose = Math.Abs((finConge - debutConge).Days) + 1;
             }
             
@@ -108,7 +109,7 @@ namespace Barabinot.MinieBicks.UI
             {
                 DateTime debutRtt = (DateTime)this.DebutRtt.SelectedDate;
                 DateTime finRtt = (DateTime)this.FinRtt.SelectedDate;
-                RttPose = GetNumberOfWorkingDays(debutRtt, finRtt);
+                RttPose = Utils.GetNumberOfWorkingDays(debutRtt, finRtt);
                 //RttPose = Math.Abs((finRtt - debutRtt).Days) + 1;
             }
             
@@ -155,13 +156,13 @@ namespace Barabinot.MinieBicks.UI
         //Vérification de saisie
         private void TxtBox_KeyUp(object sender, KeyEventArgs e)
         {
-            this.TxtBoxTransport.Text = IsTextAllowed(this.TxtBoxTransport.Text);
-            this.TxtBoxKm.Text = IsTextAllowed(this.TxtBoxKm.Text);
-            this.TxtBoxParking.Text = IsTextAllowed(this.TxtBoxParking.Text);
-            this.TxtBoxPhone.Text = IsTextAllowed(this.TxtBoxPhone.Text);
-            this.TxtBoxRepas.Text = IsTextAllowed(this.TxtBoxRepas.Text);
-            this.TxtBoxLogement.Text = IsTextAllowed(this.TxtBoxLogement.Text);
-            this.TxtBoxDivers.Text = IsTextAllowed(this.TxtBoxDivers.Text);
+            this.TxtBoxTransport.Text = Utils.IsTextAllowed(this.TxtBoxTransport.Text);
+            this.TxtBoxKm.Text = Utils.IsTextAllowed(this.TxtBoxKm.Text);
+            this.TxtBoxParking.Text = Utils.IsTextAllowed(this.TxtBoxParking.Text);
+            this.TxtBoxPhone.Text = Utils.IsTextAllowed(this.TxtBoxPhone.Text);
+            this.TxtBoxRepas.Text = Utils.IsTextAllowed(this.TxtBoxRepas.Text);
+            this.TxtBoxLogement.Text = Utils.IsTextAllowed(this.TxtBoxLogement.Text);
+            this.TxtBoxDivers.Text = Utils.IsTextAllowed(this.TxtBoxDivers.Text);
 
             decimal totFrais = 0;
             decimal fraisTransport = Convert.ToDecimal(this.TxtBoxTransport.Text);
@@ -177,17 +178,17 @@ namespace Barabinot.MinieBicks.UI
             this.lblTotFrais.Content = totFrais;
         }
 
-        private static readonly Regex _regex = new Regex("[^0-9,-]+"); //regex that matches disallowed text
-        private static string IsTextAllowed(string text)
-        {
-            return _regex.Replace(text,"");
-        }
-
+        
+        //Validation des frais de l'utilisateur
         private void Button_ValidFrais(object sender, RoutedEventArgs e)
         {
             using (var db = new GestionContext())
             {
+                var user = db.Utilisateurs.Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
+
                 Frais frais = new Frais();
+                decimal reportSuivant = 0;
+                decimal fraisJour = Convert.ToDecimal(this.lblReport.Content);
                 frais.DateFrais = (DateTime)this.DateFrais.SelectedDate;
                 decimal fraisTransport = Convert.ToDecimal(this.TxtBoxTransport.Text);
                 decimal fraisKm = Convert.ToDecimal(this.TxtBoxKm.Text) * 0.33m;
@@ -197,30 +198,29 @@ namespace Barabinot.MinieBicks.UI
                 decimal fraisLogement = Convert.ToDecimal(this.TxtBoxLogement.Text);
                 decimal fraisDivers = Convert.ToDecimal(this.TxtBoxDivers.Text);
 
-                frais.TotFrais = fraisTransport + fraisKm + fraisParking + fraisPhone + fraisRepas + fraisLogement + fraisDivers;
-            
-            
-                var user = db.Utilisateurs.Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
+                if(fraisTransport > 27)
+                {
+                    reportSuivant = Math.Abs(27 - fraisTransport);
+                    fraisTransport = 27;
+                }
+
+                frais.TotFrais = fraisTransport + fraisKm + fraisJour + fraisParking + fraisPhone + fraisRepas + fraisLogement + fraisDivers;
 
                 user.Frais.Add(frais);
                 db.SaveChanges();
+
+                if(reportSuivant != 0)
+                {
+                    Frais fraisReport = new Frais();
+                    fraisReport.DateFrais = ((DateTime)this.DateFrais.SelectedDate).AddDays(1);
+                    fraisReport.ReportFrais = reportSuivant;
+                    user.Frais.Add(fraisReport);
+                    db.SaveChanges();
+                }
             }
         }
 
-        //Renvoie le nombre de jours ouvrés entre deux dates
-        private static int GetNumberOfWorkingDays(DateTime start, DateTime stop)
-        {
-            int days = 0;
-            while (start <= stop)
-            {
-                if (start.DayOfWeek != DayOfWeek.Saturday && start.DayOfWeek != DayOfWeek.Sunday)
-                {
-                    ++days;
-                }
-                start = start.AddDays(1);
-            }
-            return days;
-        }
+        
 
         private void Button_AddUser(object sender, RoutedEventArgs e)
         {
@@ -262,6 +262,22 @@ namespace Barabinot.MinieBicks.UI
                 db.SaveChanges();
             }
             ChargerListeUser();
+        }
+
+        private void ChargementReport(object sender, SelectionChangedEventArgs e)
+        {
+            using (var db = new GestionContext())
+            {
+                var user = db.Utilisateurs.Where(b => b.UserId == ((Utilisateurs)ListeBoxUser.SelectedItem).UserId).First();
+                foreach(var frais in user.Frais)
+                {
+                    if(frais.DateFrais == (DateTime)this.DateFrais.SelectedDate)
+                    {
+                        this.lblReport.Content = frais.ReportFrais;
+                    }
+                }
+            }
+
         }
     }
 }

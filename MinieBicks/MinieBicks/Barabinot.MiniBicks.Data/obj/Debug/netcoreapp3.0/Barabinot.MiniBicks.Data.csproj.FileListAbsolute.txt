@@ -7,3 +7,4 @@ D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\obj\D
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.pdb
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.runtimeconfig.json
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.runtimeconfig.dev.json
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MiniBicks.Data\obj\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.csprojAssemblyReference.cache

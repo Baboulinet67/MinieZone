@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Barabinot.MiniBicks.Data\Barabinot.MiniBicks.Data.csproj" />
+    <ProjectReference Include="..\Barabinot.MiniBicks.Lib\Barabinot.MiniBicks.Lib.csproj" />
   </ItemGroup>
 
 </Project>

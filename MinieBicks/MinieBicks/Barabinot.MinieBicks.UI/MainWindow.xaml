@@ -64,7 +64,7 @@
                         <Label Content="Repas :" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
                         <Label Content="Logement :" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top"/>
                         <Label Content="Divers :" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Total des frais : " HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Reports : " HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="TxtBoxTransport" HorizontalAlignment="Left" Margin="164,14,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
                         <TextBox x:Name="TxtBoxKm" HorizontalAlignment="Left" Margin="164,45,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
                         <TextBox x:Name="TxtBoxParking" HorizontalAlignment="Left" Margin="164,76,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
@@ -72,9 +72,11 @@
                         <TextBox x:Name="TxtBoxRepas" HorizontalAlignment="Left" Margin="164,138,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
                         <TextBox x:Name="TxtBoxLogement" HorizontalAlignment="Left" Margin="164,169,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
                         <TextBox x:Name="TxtBoxDivers" HorizontalAlignment="Left" Margin="164,200,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="TxtBox_KeyUp"/>
-                        <Label x:Name="lblTotFrais" Content="lbl" HorizontalAlignment="Left" Margin="164,227,0,0" VerticalAlignment="Top"/>
-                        <DatePicker x:Name="DateFrais" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="132"/>
-                        <Button Content="Valider frais" HorizontalAlignment="Left" Margin="164,260,0,0" VerticalAlignment="Top" Width="120" Click="Button_ValidFrais"/>
+                        <Label x:Name="lblReport" Content="0" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top"/>
+                        <DatePicker x:Name="DateFrais" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="132" SelectedDateChanged="ChargementReport"/>
+                        <Button Content="Valider frais" HorizontalAlignment="Left" Margin="164,270,0,0" VerticalAlignment="Top" Width="120" Click="Button_ValidFrais"/>
+                        <Label Content="Total des frais : " HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="lblTotFrais" Content="0" HorizontalAlignment="Center" Margin="0,237,0,0" VerticalAlignment="Top"/>
                     </Grid>
                 </TabItem>
             </TabControl>

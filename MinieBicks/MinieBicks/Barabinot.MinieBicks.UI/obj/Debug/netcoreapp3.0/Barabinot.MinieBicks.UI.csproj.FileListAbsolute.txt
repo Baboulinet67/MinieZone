@@ -53,3 +53,5 @@ D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MinieBicks.UI\bin\De
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MinieBicks.UI\bin\Debug\netcoreapp3.0\runtimes\win-x86\native\e_sqlite3.dll
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MinieBicks.UI\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.dll
 D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MinieBicks.UI\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Data.pdb
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MinieBicks.UI\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Lib.dll
+D:\Documents\CESI\MinieZone\MinieBicks\MinieBicks\Barabinot.MinieBicks.UI\bin\Debug\netcoreapp3.0\Barabinot.MiniBicks.Lib.pdb

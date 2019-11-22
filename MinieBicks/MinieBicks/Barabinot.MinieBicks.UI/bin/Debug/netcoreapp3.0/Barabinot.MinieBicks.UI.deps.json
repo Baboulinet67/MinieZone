@@ -9,6 +9,7 @@
       "Barabinot.MinieBicks.UI/1.0.0": {
         "dependencies": {
           "Barabinot.MiniBicks.Data": "1.0.0",
+          "Barabinot.MiniBicks.Lib": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "3.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "3.0.1"
         },
@@ -359,6 +360,11 @@
         "runtime": {
           "Barabinot.MiniBicks.Data.dll": {}
         }
+      },
+      "Barabinot.MiniBicks.Lib/1.0.0": {
+        "runtime": {
+          "Barabinot.MiniBicks.Lib.dll": {}
+        }
       }
     }
   },
@@ -600,6 +606,11 @@
       "hashPath": "system.threading.tasks.extensions.4.5.2.nupkg.sha512"
     },
     "Barabinot.MiniBicks.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Barabinot.MiniBicks.Lib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
